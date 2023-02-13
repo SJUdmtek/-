@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import LinearProgress, {
   LinearProgressProps,
 } from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ModalBase from './ModalBase';
+import modalStyle from './ModalBase/ModalBase.module.scss';
 
 function LinearProgressWithLabel(
   props: LinearProgressProps & { value: number; time: number }
@@ -76,6 +77,10 @@ export default function App() {
               color="success"
             />
           </Box>
+          <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+            <button className={modalStyle.footerBtn}>거절</button>
+            <button>적용</button>
+          </div>
         </ModalBase>
       )}
     </React.Fragment>
