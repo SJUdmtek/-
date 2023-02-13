@@ -68,13 +68,7 @@ export default function App() {
         모달 띄우기
       </button>
       {modalOpen && (
-        <ModalBase
-          onCloseClick={() => {
-            setModalOpen(false);
-            setProgress(0);
-            setTime(5);
-          }}
-        >
+        <ModalBase>
           <Box sx={{ width: '100%' }}>
             <LinearProgressWithLabel
               value={progress}
