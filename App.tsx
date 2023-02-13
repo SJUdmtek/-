@@ -43,10 +43,15 @@ export default function App() {
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= 100 ? 0 : prevProgress + 20
-      );
-      setTime((prevTime) => (prevTime <= 0 ? 5 : prevTime - 1));
+      if (!modalOpen) {
+        setProgress(0);
+        setTime(5);
+      } else {
+        setProgress((prevProgress) =>
+          prevProgress >= 100 ? 0 : prevProgress + 20
+        );
+        setTime((prevTime) => (prevTime <= 0 ? 5 : prevTime - 1));
+      }
     }, 1000);
     return () => {
       clearInterval(timer);
@@ -78,8 +83,17 @@ export default function App() {
             />
           </Box>
           <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
-            <button className={modalStyle.footerBtn}>거절</button>
-            <button>적용</button>
+            <button
+              className={modalStyle.footerBtn}
+              onClick={() => {
+                setModalOpen(false);
+                setProgress(0);
+                setTime(5);
+              }}
+            >
+              거절
+            </button>
+            <button className={modalStyle.footerBtn}>적용</button>
           </div>
         </ModalBase>
       )}
