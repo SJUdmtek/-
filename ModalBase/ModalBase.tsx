@@ -23,7 +23,6 @@ const ModalBase = (props: {
       <div className="container">
         <div className="header">
           <h4>{props.title}</h4>
-          <span onClick={props.onCloseClick}>&times;</span>
         </div>
         <div className="body">{props.children}</div>
       </div>
