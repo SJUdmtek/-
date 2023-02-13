@@ -5,7 +5,7 @@ import LinearProgress, {
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ModalBase from './ModalBase';
-import modalStyle from './ModalBase/ModalBase.module.scss';
+import modalStyle from './ProgressModal.module.scss';
 
 function LinearProgressWithLabel(
   props: LinearProgressProps & { value: number; time: number }
